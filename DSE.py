@@ -153,17 +153,17 @@ for i in range(num_players):
 
     value = find_strongly_dominant_eq(i, tempplayerlist, tempplayerlist[0])
     if value == -sys.maxint:
-        # print "No Strongly Dominant Strategy equilibrium exists"
+        print "No Strongly Dominant Strategy equilibrium exists"
         return_value = 0
         break
     else:
         strong_eq.append(value)
 
 if return_value == -1:
-    print "Weakly dominant strategy equilibrium(s) is (are):",
+    # print "Strongly dominant strategy equilibrium (in order of P1, P2, ... ,Pn) is:",
     for i in strong_eq:
         print i,
-
+#
 else:
     min_eq_list = []
     for i in range(num_players):
@@ -184,4 +184,4 @@ else:
         # print min_eq_list
 
 
-print("--- %s ---" % (time.time() - start_time))
+# print("--- %s ---" % (time.time() - start_time))
