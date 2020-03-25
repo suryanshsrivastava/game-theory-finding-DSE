@@ -1,3 +1,6 @@
+## Intro to Game Theory Assignment 1 Question 2
+Find​ all​​ weakly dominant strategy equilibria for an n-person game given nfg file.
+
 ## Language and modules
 *Language:* python3
 *Modules imported:*
@@ -8,10 +11,10 @@
 ##Displays all dominant strategy equilibria for a n-player game
 
 To run the file
-DSE.py <inputfile> <outputfile>
+./run <inputfile> <outputfile>
 
 sample command:
-assignv3.py Example1.nfg out.txt
+./run Example1.nfg output1
 
 ## Input Format 
 
