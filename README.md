@@ -1,14 +1,19 @@
-# Game-Theory Assignment1 Question2
-Assignment1: ​ Find​ ​ all dominant strategy equilibria for an n-person game given nfg file 
-<!-- (The problem statement has been updated) -->
+## Language and modules
+*Language:* python3
+*Modules imported:*
+* sys
+* numpy
+* itertools
 
-You need to write your solution approach and time complexity in the readme file.
+##Displays all dominant strategy equilibria for a n-player game
 
 To run the file
-./run <input file> <output file>
+DSE.py <inputfile> <outputfile>
 
 sample command:
-./run Example1.nfg output1
+assignv3.py Example1.nfg out.txt
+
+## Input Format 
 
 If file is not provided it will throw error "Please pass the name of the game file to be analyzed"
 
@@ -24,5 +29,11 @@ line 2:		{ "Player 1" "Player 2" } { 3 3 }
 line 3:
 line 4:		2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3
 
-Time Complexity:
-O(#players X #strategies of that players)
+## Solution approach
+The approach uses brute-force method. It iterates over each player one by one.
+In the i<sup>th</sup> iteration it finds the best action s<sub>i</sub> for all possible values of the strategy S<sub>-i</sub> of all other players. If the interesction of s<sub>i</sub> for all possible S<sub>-i</sub> is null for any player then no dominant strategy equilibrium exists else atleast one exists.
+
+## Time Complexity
+The complexity is O(N * A).
+where N is the number of players
+and A is the product of the number of actions available to each player
