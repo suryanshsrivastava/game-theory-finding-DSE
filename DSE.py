@@ -14,6 +14,7 @@ num_players = len(data)
 strategies = map(int, data)
 multiplier = []
 temp = 1
+count = 0
 for i in range(len(strategies)):
     multiplier.append(temp)
     temp = temp * strategies[i]
@@ -149,7 +150,7 @@ strong_eq = []
 for i in range(num_players):
     tempplayerlist = playerslist[:]
     tempplayerlist.remove(i)
-    print i, tempplayerlist, tempplayerlist[0]
+    # print i, tempplayerlist, tempplayerlist[0]
 
     value = find_strongly_dominant_eq(i, tempplayerlist, tempplayerlist[0])
     if value == -sys.maxint:
