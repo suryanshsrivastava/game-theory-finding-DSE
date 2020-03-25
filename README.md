@@ -5,8 +5,6 @@ Find​ all​​ weakly dominant strategy equilibria for an n-person game given
 *Language:* python3
 *Modules imported:*
 * sys
-* numpy
-* itertools
 
 ##Displays all dominant strategy equilibria for a n-player game
 
