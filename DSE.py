@@ -35,49 +35,49 @@ def sel_index(player, args):
     result += player
     return result
 
-# def find_strongly_dominant_eq(playerno, totalplayer, topplayer, strategyarr = [], eqindex = -1):
-#     if(len(totalplayer) >= 1):
-#         cur_player = totalplayer[0]
-#         temp = 0
-#         totalplayer = totalplayer[1:]
-#         for strategy in range(strategies[cur_player]):
-#             # print "First eqindex ", eqindex
-#             temparray = strategyarr[:]
-#             # print "Tempar ", temparray
-#             temparray.append(strategy)
-#             temp = find_strongly_dominant_eq(playerno, totalplayer, topplayer, temparray, eqindex)
-#             # print "Temp value ", temp
-#             if( temp == -sys.maxint):
-#                 return temp
-#             else:
-#                 eqindex = temp
+def find_strongly_dominant_eq(playerno, totalplayer, topplayer, strategyarr = [], eqindex = -1):
+    if(len(totalplayer) >= 1):
+        cur_player = totalplayer[0]
+        temp = 0
+        totalplayer = totalplayer[1:]
+        for strategy in range(strategies[cur_player]):
+            # print "First eqindex ", eqindex
+            temparray = strategyarr[:]
+            # print "Tempar ", temparray
+            temparray.append(strategy)
+            temp = find_strongly_dominant_eq(playerno, totalplayer, topplayer, temparray, eqindex)
+            # print "Temp value ", temp
+            if( temp == -sys.maxint):
+                return temp
+            else:
+                eqindex = temp
 
-#         return temp
+        return temp
 
-#     else:
-#         # print "Eqindex ", eqindex
-#         max_payoff = -sys.maxint
-#         max_index = -1
-#         other_payoffs = []
-#         other_index = []
-#         for strategy in range(strategies[playerno]):
-#             temp1 = strategyarr[:]
-#             # print "T1 ", temp1
-#             temp1.insert(playerno, strategy)
-#             cur_payoff = gamedata[sel_index(playerno, temp1)]
-#             if( max_payoff < cur_payoff):
-#                 max_payoff = cur_payoff
-#                 max_index = strategy
-#             else:
-#                 other_payoffs.append(cur_payoff)
-#                 other_index = strategy
-#         if(max_payoff in other_payoffs):
-#             return -sys.maxint
-#         if( eqindex == -1 ):
-#             eqindex = max_index
-#         elif( eqindex != max_index ):
-#             return -sys.maxint
-#         return eqindex
+    else:
+        # print "Eqindex ", eqindex
+        max_payoff = -sys.maxint
+        max_index = -1
+        other_payoffs = []
+        other_index = []
+        for strategy in range(strategies[playerno]):
+            temp1 = strategyarr[:]
+            # print "T1 ", temp1
+            temp1.insert(playerno, strategy)
+            cur_payoff = gamedata[sel_index(playerno, temp1)]
+            if( max_payoff < cur_payoff):
+                max_payoff = cur_payoff
+                max_index = strategy
+            else:
+                other_payoffs.append(cur_payoff)
+                other_index = strategy
+        if(max_payoff in other_payoffs):
+            return -sys.maxint
+        if( eqindex == -1 ):
+            eqindex = max_index
+        elif( eqindex != max_index ):
+            return -sys.maxint
+        return eqindex
 
 def find_weakly_dominant_eq(playerno, totalplayer, topplayer, eqindex, strategyarr = []):
     if(len(totalplayer) >= 1):
@@ -147,22 +147,22 @@ strong_eq = []
 for i in range(num_players):
     tempplayerlist = playerslist[:]
     tempplayerlist.remove(i)
-    # print i, tempplayerlist, tempplayerlist[0]
+    print i, tempplayerlist, tempplayerlist[0]
     
-    # value = find_strongly_dominant_eq(i, tempplayerlist, tempplayerlist[0])
-    # if value == -sys.maxint:
-    #     print "No Strongly Dominant Strategy equilibrium exists"
-    #     return_value = 0
-    #     break
-    # else:
-    #     strong_eq.append(value)
+    value = find_strongly_dominant_eq(i, tempplayerlist, tempplayerlist[0])
+    if value == -sys.maxint:
+        print "No Strongly Dominant Strategy equilibrium exists"
+        return_value = 0
+        break
+    else:
+        strong_eq.append(value)
 
-# if return_value == -1:
-#     print "Strongly dominant strategy equilibrium (in order of P1, P2, ... ,Pn) is:",
-#     for i in strong_eq:
-#         print i, 
+if return_value == -1:
+    print "Strongly dominant strategy equilibrium (in order of P1, P2, ... ,Pn) is:",
+    for i in strong_eq:
+        print i, 
 
-# else:
+else:
     min_eq_list = []
     for i in range(num_players):
         tempplayerlist = playerslist[:]
