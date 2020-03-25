@@ -1,5 +1,7 @@
 #!/usr/bin/python
 import sys
+import time
+start_time = time.time()
 if len(sys.argv) < 2:
     print "Please pass the name of the game file to be analyzed"
 
@@ -134,7 +136,7 @@ def print_weak(indexes, valueindexes = [], start = 0):
             tempresult = valueindexes[:]
             tempresult.append(i)
             for v in tempresult:
-                print v, 
+                print v,
             print
         print
 
@@ -148,19 +150,19 @@ for i in range(num_players):
     tempplayerlist = playerslist[:]
     tempplayerlist.remove(i)
     print i, tempplayerlist, tempplayerlist[0]
-    
+
     value = find_strongly_dominant_eq(i, tempplayerlist, tempplayerlist[0])
     if value == -sys.maxint:
-        print "No Strongly Dominant Strategy equilibrium exists"
+        # print "No Strongly Dominant Strategy equilibrium exists"
         return_value = 0
         break
     else:
         strong_eq.append(value)
 
 if return_value == -1:
-    print "Strongly dominant strategy equilibrium (in order of P1, P2, ... ,Pn) is:",
+    print "Weakly dominant strategy equilibrium(s) is (are):",
     for i in strong_eq:
-        print i, 
+        print i,
 
 else:
     min_eq_list = []
@@ -180,3 +182,6 @@ else:
         print "Weakly dominant strategy equilibrium(s) is (are): "
         print_weak(min_eq_list)
         # print min_eq_list
+
+
+print("--- %s ---" % (time.time() - start_time))
