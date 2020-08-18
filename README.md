@@ -1,5 +1,5 @@
 ## Intro to Game Theory Assignment 1 Question 2
-Find​ all​​ weakly dominant strategy equilibria for an n-person game given nfg file.
+Find all weakly dominant strategy equilibria for an n-person game given nfg file.
 
 ## Language and modules
 *Language:* python3
